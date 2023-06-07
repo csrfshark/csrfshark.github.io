@@ -1,0 +1,67 @@
+{
+    "head": {
+        "title": "CSRFShark"
+    },
+    "main": {
+        "about": {
+            "title": "CSRFShark - una utilidad para manipular ataques de falsificación de petición de sitio cruzado",
+            "description": "Generación de pruebas de concepto para ataques de falsificación de petición en sitios cruzados con la posibilidad de compartir el resultado",
+            "button": {
+                "primary": {
+                    "text": "Empezar a utilizar"
+                }
+            }
+        },
+
+
+        "advantages": {
+            "title": "Características",
+            "list": {
+                "client-side-rendering": {
+                    "text": "Client-Side Rendering",
+                    "description": "Todos los datos se generan en el lado del cliente mediante JavaScript, por lo que el servicio funciona incluso sin conexión a Internet."
+                },
+
+                "privacy": {
+                    "text": "Privacidad",
+                    "description": "Mediante el uso de la tecnología URL Hash, el servidor no tiene información sobre la solicitud del cliente y el PoC creado"
+                },
+
+                "share": {
+                    "text": "Enlace de resultados",
+                    "description": "Obtenga un enlace a la PoC generada con sólo unos clics"
+                },
+
+                "open-source": {
+                    "text": "Código fuente abierto",
+                    "description": "El código completo del servicio está publicado en GitHub"
+                },
+
+                "real-time": {
+                    "text": "Ejecución en tiempo real",
+                    "description": "Compruebe que el ataque funciona en tiempo real sin salir del servicio"
+                },
+
+                "responsive-interface": {
+                    "text": "Interfaz adaptable",
+                    "description": "Genere PoC en cualquier dispositivo"
+                }
+            }
+        }
+    },
+
+    "modal": {
+        "language": {
+            "title": "Seleccione un idioma"
+        },
+
+        "button": {
+            "apply": "Solicitar"
+        }
+    },
+
+    "tippy": {
+        "theme": "Tema",
+        "language": "Idioma"
+    }
+}
