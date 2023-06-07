@@ -1,0 +1,67 @@
+{
+    "head": {
+        "title": "CSRFShark"
+    },
+    "main": {
+        "about": {
+            "title": "CSRFShark - утилита для работы с атакой подделки межсайтовых запросов",
+            "description": "Генерируйте Proof-of-Concept для Cross-Site Request Forgery атак с возможностью расшаривания результата",
+            "button": {
+                "primary": {
+                    "text": "Начать использование"
+                }
+            }
+        },
+
+
+        "advantages": {
+            "title": "Преимущества",
+            "list": {
+                "client-side-rendering": {
+                    "text": "Client-Side Rendering",
+                    "description": "Все данные генерируются на стороне клиента при помощи JavaScript. Сервис работает даже без интернета"
+                },
+
+                "privacy": {
+                    "text": "Конфиденциальность",
+                    "description": "Благодаря использованию технологии URL Hash, сервер не обладает информацией о запросе клиента и созданном PoC"
+                },
+
+                "share": {
+                    "text": "Ссылка на результат",
+                    "description": "Получите ссылку на сгенерированный PoC в пару кликов"
+                },
+
+                "open-source": {
+                    "text": "Открытый исходный код",
+                    "description": "Полный код сервиса опубликован на GitHub"
+                },
+
+                "real-time": {
+                    "text": "Real-Time запуск",
+                    "description": "Проверяйте работоспособность атаки в режиме реального времени, не покидая сервис"
+                },
+
+                "responsive-interface": {
+                    "text": "Адаптивный интерфейс",
+                    "description": "Генерируйте PoC на любом устройстве"
+                }
+            }
+        }
+    },
+
+    "modal": {
+        "language": {
+            "title": "Выберите язык"
+        },
+
+        "button": {
+            "apply": "Применить"
+        }
+    },
+
+    "tippy": {
+        "theme": "Тема",
+        "language": "Язык"
+    }
+}

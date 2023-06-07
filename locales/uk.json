@@ -1,0 +1,67 @@
+{
+    "head": {
+        "title": "CSRFShark"
+    },
+    "main": {
+        "about": {
+            "title": "CSRFShark - утиліта для роботи з атакою підробки міжсайтових запитів",
+            "description": "Генеруйте Proof-of-Concept для Cross-Site Request Forgery атак з можливістю розшарювання результату",
+            "button": {
+                "primary": {
+                    "text": "Почати використання"
+                }
+            }
+        },
+
+
+        "advantages": {
+            "title": "Переваги",
+            "list": {
+                "client-side-rendering": {
+                    "text": "Client-Side Rendering",
+                    "description": "Усі дані генеруються на стороні клієнта за допомогою JavaScript. Сервіс працює навіть без інтернету"
+                },
+
+                "privacy": {
+                    "text": "Конфіденційність",
+                    "description": "Завдяки використанню технології URL Hash, сервер не володіє інформацією про запит клієнта і створений PoC"
+                },
+
+                "share": {
+                    "text": "Посилання на результат",
+                    "description": "Отримайте посилання на згенерований PoC у кілька кліків"
+                },
+
+                "open-source": {
+                    "text": "Відкритий вихідний код",
+                    "description": "Повний код сервісу опубліковано на GitHub"
+                },
+
+                "real-time": {
+                    "text": "Real-Time запуск",
+                    "description": "Перевіряйте працездатність атаки в режимі реального часу, не залишаючи сервіс"
+                },
+
+                "responsive-interface": {
+                    "text": "Адаптивний інтерфейс",
+                    "description": "Генеруйте PoC на будь-якому пристрої"
+                }
+            }
+        }
+    },
+
+    "modal": {
+        "language": {
+            "title": "Виберіть мову"
+        },
+
+        "button": {
+            "apply": "Застосувати"
+        }
+    },
+
+    "tippy": {
+        "theme": "Тема",
+        "language": "Мова"
+    }
+}

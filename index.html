@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="notranslate" translate="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CSRFShark</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="media/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="media/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon/favicon-16x16.png">
+    <link rel="manifest" href="media/favicon/site.webmanifest">
+    <link rel="mask-icon" href="media/favicon/safari-pinned-tab.svg" color="#132c48">
+    <link rel="shortcut icon" href="media/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#132c48">
+    <meta name="msapplication-config" content="media/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#132c48">
+
+    <meta name="description" content="CSRFShark is a utility for manipulating cross-site Request forgery (CSRF) attacks">
+    <meta name="keywords" content="csrfshark, csrf, csrf poc generator, online poc">
+
+    <meta name="google" content="notranslate">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/tippy-bundle.umd.js"></script>
+
+    <script src="js/i18next.min.js"></script>
+    <script src="js/jquery-i18next.min.js"></script>
+    <script src="js/i18nextHttpBackend.min.js"></script>
+
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <a class="logo header__logo" href="/">
+            <div class="logo__img"></div>
+        </a>
+
+        <div class="controls header__controls">
+            <button class="controls__item js-change-theme" data-template="theme">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M12 21.9966C6.47715 21.9966 2 17.5194 2 11.9966C2 6.47373 6.47715 1.99658 12 1.99658C17.5228 1.99658 22 6.47373 22 11.9966C22 17.5194 17.5228 21.9966 12 21.9966ZM12 19.9966C16.4183 19.9966 20 16.4149 20 11.9966C20 7.5783 16.4183 3.99658 12 3.99658C7.58172 3.99658 4 7.5783 4 11.9966C4 16.4149 7.58172 19.9966 12 19.9966ZM12 17.9966V5.99658C15.3137 5.99658 18 8.68287 18 11.9966C18 15.3103 15.3137 17.9966 12 17.9966Z">
+                    </path>
+                </svg>
+            </button>
+            <button class="controls__item js-change-language" data-template="language" data-modal="language">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M5 15V17C5 18.0544 5.81588 18.9182 6.85074 18.9945L7 19H10V21H7C4.79086 21 3 19.2091 3 17V15H5ZM18 10L22.4 21H20.245L19.044 18H14.954L13.755 21H11.601L16 10H18ZM17 12.8852L15.753 16H18.245L17 12.8852ZM8 2V4H12V11H8V14H6V11H2V4H6V2H8ZM17 3C19.2091 3 21 4.79086 21 7V9H19V7C19 5.89543 18.1046 5 17 5H14V3H17ZM6 6H4V9H6V6ZM10 6H8V9H10V6Z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="main">
+        <section class="about">
+            <div class="about__primary">
+                <h1 class="about__title" data-i18n="main.about.title"></h1>
+                <div class="about__description" data-i18n="main.about.description"></div>
+                <div class="about__controls">
+
+                    <a href="https://csrfshark.github.io/app" class="about__button about__button_primary">
+                        <div class="about__text" data-i18n="main.about.button.primary.text"></div>
+                        <div class="about__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                </path>
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="https://github.com/csrfshark/app" class="about__button about__button_additional">
+                        <div class="about__text">GitHub</div>
+                        <div class="about__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                                </path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="about__illustration">
+                <picture>
+                    <source
+                        srcset="media/logo/minimal.svg"
+                        media="(max-width: 992px)">
+                    <img class="about__img"
+                        src="media/logo/minimal.svg">
+                </picture>
+            </div>
+        </section>
+
+
+        <section class="advantages">
+            <div class="advantages__title" data-i18n="main.advantages.title"></div>
+            <div class="advantages__list">
+                <div class="advantages__item">
+                    <div class="advantages__icon advantages__icon-pink">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M21 3C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H21ZM20 11H4V19H20V11ZM20 5H4V9H20V5ZM11 6V8H9V6H11ZM7 6V8H5V6H7Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="advantages__info">
+                        <div class="advantages__text" data-i18n="main.advantages.list.client-side-rendering.text"></div>
+                        <div class="advantages__description" data-i18n="main.advantages.list.client-side-rendering.description"></div>
+                        <!-- <a class="advantages__link" href="#" data-modal="advantages-client-side-rendering">Подробнее</a> -->
+                    </div>
+                </div>
+
+                <div class="advantages__item">
+                    <div class="advantages__icon advantages__icon-gray">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M17 13C19.2091 13 21 14.7909 21 17C21 19.2091 19.2091 21 17 21C14.7909 21 13 19.2091 13 17H11C11 19.2091 9.20914 21 7 21C4.79086 21 3 19.2091 3 17C3 14.7909 4.79086 13 7 13C8.48052 13 9.77317 13.8043 10.4648 14.9999H13.5352C14.2268 13.8043 15.5195 13 17 13ZM7 15C5.89543 15 5 15.8954 5 17C5 18.1046 5.89543 19 7 19C8.10457 19 9 18.1046 9 17C9 15.8954 8.10457 15 7 15ZM17 15C15.8954 15 15 15.8954 15 17C15 18.1046 15.8954 19 17 19C18.1046 19 19 18.1046 19 17C19 15.8954 18.1046 15 17 15ZM16 3C18.2091 3 20 4.79086 20 7V10H22V12H2V10H4V7C4 4.79086 5.79086 3 8 3H16ZM16 5H8C6.94564 5 6 5.95 6 7V10H18V7C18 5.94564 17.05 5 16 5Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="advantages__info">
+                        <div class="advantages__text" data-i18n="main.advantages.list.privacy.text"></div>
+                        <div class="advantages__description" data-i18n="main.advantages.list.privacy.description"></div>
+                        <!-- <a class="advantages__link" href="#">Подробнее</a> -->
+                    </div>
+                </div>
+
+                <div class="advantages__item">
+                    <div class="advantages__icon advantages__icon-purple">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M13.0605 8.11073L14.4747 9.52494C17.2084 12.2586 17.2084 16.6908 14.4747 19.4244L14.1211 19.778C11.3875 22.5117 6.95531 22.5117 4.22164 19.778C1.48797 17.0443 1.48797 12.6122 4.22164 9.87849L5.63585 11.2927C3.68323 13.2453 3.68323 16.4112 5.63585 18.3638C7.58847 20.3164 10.7543 20.3164 12.7069 18.3638L13.0605 18.0102C15.0131 16.0576 15.0131 12.8918 13.0605 10.9392L11.6463 9.52494L13.0605 8.11073ZM19.778 14.1211L18.3638 12.7069C20.3164 10.7543 20.3164 7.58847 18.3638 5.63585C16.4112 3.68323 13.2453 3.68323 11.2927 5.63585L10.9392 5.98941C8.98653 7.94203 8.98653 11.1079 10.9392 13.0605L12.3534 14.4747L10.9392 15.8889L9.52494 14.4747C6.79127 11.741 6.79127 7.30886 9.52494 4.57519L9.87849 4.22164C12.6122 1.48797 17.0443 1.48797 19.778 4.22164C22.5117 6.95531 22.5117 11.3875 19.778 14.1211Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="advantages__info">
+                        <div class="advantages__text" data-i18n="main.advantages.list.share.text"></div>
+                        <div class="advantages__description" data-i18n="main.advantages.list.share.description"></div>
+                        <!-- <a class="advantages__link" href="#">Подробнее</a> -->
+                    </div>
+                </div>
+
+                <div class="advantages__item">
+                    <div class="advantages__icon advantages__icon-green">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M12.001 2C17.5238 2 22.001 6.47715 22.001 12C22.001 16.3996 19.1598 20.1355 15.2122 21.4732L14.9859 21.5469L12.082 13.997C13.151 13.95 14.001 13.0544 14.001 12C14.001 10.8954 13.1055 10 12.001 10C10.8964 10 10.001 10.8954 10.001 12C10.001 13.0768 10.8519 13.9548 11.918 13.9983L9.01501 21.5466L8.78975 21.4732C4.84212 20.1355 2.00098 16.3996 2.00098 12C2.00098 6.47715 6.47813 2 12.001 2ZM12.001 4C7.5827 4 4.00098 7.58172 4.00098 12C4.00098 14.9201 5.56547 17.4747 7.90198 18.8715L9.38145 15.023C8.5358 14.2896 8.00098 13.2073 8.00098 12C8.00098 9.79086 9.79184 8 12.001 8C14.2101 8 16.001 9.79086 16.001 12C16.001 13.2075 15.466 14.29 14.62 15.0234C15.1861 16.4969 15.6797 17.7803 16.0998 18.8729C18.4362 17.4751 20.001 14.9203 20.001 12C20.001 7.58172 16.4193 4 12.001 4Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="advantages__info">
+                        <div class="advantages__text" data-i18n="main.advantages.list.open-source.text"></div>
+                        <div class="advantages__description" data-i18n="main.advantages.list.open-source.description"></div>
+                        <!-- <a class="advantages__link" href="#">Подробнее</a> -->
+                    </div>
+                </div>
+
+                <div class="advantages__item">
+                    <div class="advantages__icon advantages__icon-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M16.3944 11.9998L10 7.73686V16.2628L16.3944 11.9998ZM19.376 12.4158L8.77735 19.4816C8.54759 19.6348 8.23715 19.5727 8.08397 19.3429C8.02922 19.2608 8 19.1643 8 19.0656V4.93408C8 4.65794 8.22386 4.43408 8.5 4.43408C8.59871 4.43408 8.69522 4.4633 8.77735 4.51806L19.376 11.5838C19.6057 11.737 19.6678 12.0474 19.5146 12.2772C19.478 12.3321 19.4309 12.3792 19.376 12.4158Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="advantages__info">
+                        <div class="advantages__text" data-i18n="main.advantages.list.real-time.text"></div>
+                        <div class="advantages__description" data-i18n="main.advantages.list.real-time.description"></div>
+                        <!-- <a class="advantages__link" href="#">Подробнее</a> -->
+                    </div>
+                </div>
+
+                <div class="advantages__item">
+                    <div class="advantages__icon advantages__icon-orange">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M19 8H21C21.5523 8 22 8.44772 22 9V21C22 21.5523 21.5523 22 21 22H13C12.4477 22 12 21.5523 12 21V20H4C3.44772 20 3 19.5523 3 19V3C3 2.44772 3.44772 2 4 2H18C18.5523 2 19 2.44772 19 3V8ZM17 8V4H5V18H12V9C12 8.44772 12.4477 8 13 8H17ZM14 10V20H20V10H14Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="advantages__info">
+                        <div class="advantages__text" data-i18n="main.advantages.list.responsive-interface.text"></div>
+                        <div class="advantages__description" data-i18n="main.advantages.list.responsive-interface.description"></div>
+                        <!-- <a class="advantages__link" href="#">Подробнее</a> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <footer class="footer">
+        <div class="footer__links">
+            <a class="footer__icon" href="#" data-template="github">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github"
+                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                        d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5">
+                    </path>
+                </svg>
+            </a>
+            <a class="footer__icon" href="https://t.me/f0rb1dd3n0x193" data-template="telegram">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-telegram"
+                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
+
+
+    <div class="modal modal__name_language" style="display: none;">
+        <div class="modal__content">
+            <div class="modal__head">
+                <div class="modal__title" data-i18n="modal.language.title"></div>
+                <button class="modal__close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal__body">
+                <div class="modal__list">
+                    <div class="radio-button">
+                        <input id="language-en" type="radio" name="language" value="en" class="radio-button__input"
+                            checked>
+                        <label for="language-en" class="radio-button__label">
+                            <div class="radio-button__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-us" viewBox="0 0 640 480">
+                                    <path fill="#bd3d44" d="M0 0h640v480H0" />
+                                    <path stroke="#fff" stroke-width="37"
+                                        d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640" />
+                                    <path fill="#192f5d" d="M0 0h364.8v258.5H0" />
+                                    <marker id="a" markerHeight="30" markerWidth="30">
+                                        <path fill="#fff" d="m14 0 9 27L0 10h28L5 27z" />
+                                    </marker>
+                                    <path fill="none" marker-mid="url(#a)"
+                                        d="m0 0 16 11h61 61 61 61 60L47 37h61 61 60 61L16 63h61 61 61 61 60L47 89h61 61 60 61L16 115h61 61 61 61 60L47 141h61 61 60 61L16 166h61 61 61 61 60L47 192h61 61 60 61L16 218h61 61 61 61 60L0 0" />
+                                </svg>
+                            </div>
+                            <div class="radio-button__text">English</div>
+                        </label>
+                    </div>
+
+                    
+                    <div class="radio-button">
+                        <input id="language-ru" type="radio" name="language" value="ru" class="radio-button__input"
+                            checked>
+                        <label for="language-ru" class="radio-button__label">
+                            <div class="radio-button__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-ru" viewBox="0 0 640 480">
+                                    <g fill-rule="evenodd" stroke-width="1pt">
+                                        <path fill="#fff" d="M0 0h640v480H0z" />
+                                        <path fill="#0039a6" d="M0 160h640v320H0z" />
+                                        <path fill="#d52b1e" d="M0 320h640v160H0z" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="radio-button__text">Русский</div>
+                        </label>
+                    </div>
+
+                    <div class="radio-button">
+                        <input id="language-uk" type="radio" name="language" value="uk" class="radio-button__input"
+                            checked>
+                        <label for="language-uk" class="radio-button__label">
+                            <div class="radio-button__icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="flag-icons-ua" viewBox="0 0 640 480">
+                                    <g fill-rule="evenodd" stroke-width="1pt">
+                                        <path fill="gold" d="M0 0h640v480H0z" />
+                                        <path fill="#0057b8" d="M0 0h640v240H0z" />
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="radio-button__text">Український</div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__controls">
+                <button class="modal__button js-apply-language" data-i18n="modal.button.apply"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="loader">
+        <div class="loader__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.364 5.63604L16.9497 7.05025C15.683 5.7835 13.933 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12H21C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C14.4853 3 16.7353 4.00736 18.364 5.63604Z"></path></svg>
+        </div>
+    </div>
+
+
+    <div class="tippy-templates">
+        <div class="tippy-templates__item_name_theme" data-i18n="tippy.theme"></div>
+        <div class="tippy-templates__item_name_language" data-i18n="tippy.language"></div>
+        <div class="tippy-templates__item_name_github">GitHub</div>
+        <div class="tippy-templates__item_name_telegram">Telegram</div>
+    </div>
+</body>
+
+</html>

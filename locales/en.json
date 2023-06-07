@@ -1,0 +1,67 @@
+{
+    "head": {
+        "title": "CSRFShark"
+    },
+    "main": {
+        "about": {
+            "title": "CSRFShark - a utility for manipulating cross-site request forgery attacks",
+            "description": "Generate Proof-of-Concept for Cross-Site Request Forgery attacks with the ability to share the result",
+            "button": {
+                "primary": {
+                    "text": "Start using"
+                }
+            }
+        },
+
+
+        "advantages": {
+            "title": "Features",
+            "list": {
+                "client-side-rendering": {
+                    "text": "Client-Side Rendering",
+                    "description": "All data is generated on the client side using JavaScript, so the service works even without the internet connection"
+                },
+
+                "privacy": {
+                    "text": "Privacy",
+                    "description": "Through the use of URL Hash technology, the server has no information about the client request and the created PoC"
+                },
+
+                "share": {
+                    "text": "Result link",
+                    "description": "Obtain a link to the generated PoC with just a few clicks"
+                },
+
+                "open-source": {
+                    "text": "Open Source Code",
+                    "description": "The full code of the service is published on GitHub"
+                },
+
+                "real-time": {
+                    "text": "Real-Time run",
+                    "description": "Check that the attack works in real-time without leaving the service"
+                },
+
+                "responsive-interface": {
+                    "text": "Adaptive interface",
+                    "description": "Generate PoC on any device"
+                }
+            }
+        }
+    },
+
+    "modal": {
+        "language": {
+            "title": "Select a language"
+        },
+
+        "button": {
+            "apply": "Apply"
+        }
+    },
+
+    "tippy": {
+        "theme": "Theme",
+        "language": "Language"
+    }
+}
