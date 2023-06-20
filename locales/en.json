@@ -47,6 +47,12 @@
                     "description": "Generate PoC on any device"
                 }
             }
+        },
+
+        
+        "get-started": {
+            "title": "Getting Started",
+            "description": "In this video, you'll delve into the world of web security and master the art of utilizing CSRFShark, a utility designed to simplify the process of generating, sharing, and testing Cross-Site Request Forgery (CSRF) payloads. Whether you're a seasoned professional or a beginner taking your first steps in web security, this tutorial caters to all skill levels. We will provide you with a step-by-step walkthrough so you can use CSRFShark effectively. Enjoy watching!"
         }
     },
 

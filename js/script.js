@@ -45,6 +45,10 @@ $(function () {
                 language = 'uk';
                 break;
 
+            case 'es':
+                language = 'es';
+                break;
+
             default:
                 language = 'en';
                 break;
@@ -109,6 +113,12 @@ $(function () {
 
             theme: 'custom'
         });
+
+        if (language == 'ru') {
+            $('.get-started__video').attr('src', 'https://www.youtube.com/embed/DcIrluCfkEQ');
+        } else {
+            $('.get-started__video').attr('src', 'https://www.youtube.com/embed/xw1YAzFRBYY');
+        }
 
         setTimeout(function () {
             $(loaderElement).hide();

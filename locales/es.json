@@ -47,6 +47,12 @@
                     "description": "Genere PoC en cualquier dispositivo"
                 }
             }
+        },
+
+
+        "get-started": {
+            "title": "Primeros Pasos",
+            "description": "En este vídeo, te adentrarás en el mundo de la seguridad web y dominarás el arte de utilizar CSRFShark, una utilidad diseñada para simplificar el proceso de generar, compartir y probar cargas útiles de falsificación de petición en sitios cruzados (CSRF). Tanto si eres un profesional experimentado como un principiante dando sus primeros pasos en la seguridad web, este tutorial se adapta a todos los niveles de habilidad. Le proporcionaremos una guía paso a paso para que pueda utilizar CSRFShark con eficacia. Disfrute viendo!"
         }
     },
 
